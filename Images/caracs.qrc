@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>esclave gretchin.PNG</file>
+        <file>esclave snotling.PNG</file>
+        <file>bloodaxes.jpg</file>
+        <file>crane de mort.jpg</file>
+        <file>goff.jpg</file>
+        <file>mauvaise lune.jpg</file>
+        <file>serpents.jpg</file>
+        <file>soleil du mal.jpg</file>
+        <file>ferraille.jpg</file>
+        <file>gadget.jpg</file>
+    </qresource>
+</RCC>
