@@ -85,18 +85,23 @@ void Orks::GenererCaracs()
                                        ":/bloodaxes.jpg",
                                        "", MODE_AFFICHAGE::ma_Img
                                        ));
-    m_Perso->m_Caracs.append(new Carac(VieDunMekano::ferraille, "Ferraille", "20",
-                                       ":/ferraille.jpg",
-                                       "", MODE_AFFICHAGE::ma_Nombre
-                                       ));
+    Carac* caracFerraille = new Carac(VieDunMekano::ferraille, "Ferraille", "20",
+                                      ":/ferraille.jpg",
+                                      //"", MODE_AFFICHAGE::ma_Nombre
+                                      "", MODE_AFFICHAGE::ma_Nombre
+                                      );
+    m_Perso->m_Caracs.append(caracFerraille);
+
     m_Perso->m_Caracs.append(new Carac(VieDunMekano::gadget, "Gadget", "0",
                                        ":/gadget.jpg",
                                        "", MODE_AFFICHAGE::ma_Nombre
                                        ));
-    m_Perso->m_Caracs.append(new Carac(VieDunMekano::jours, "JOurs passés", "0",
-                                       "",
-                                       "", MODE_AFFICHAGE::ma_Nombre
-                                       ));
+
+    Carac* caracJours = new Carac(VieDunMekano::jours, "Jours passés", "0",
+                                  "",
+                                  "", MODE_AFFICHAGE::ma_Nombre
+                                  );
+    m_Perso->m_Caracs.append(caracJours);
 }
 
 QString Orks::GenerationNomOrk()

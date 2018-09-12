@@ -30,8 +30,23 @@ void VieDunMekano::GenererHistoire()
 void VieDunMekano::GenererEvtRandomJournalier()
 {
     Evt* UnJourPasse = AjouterEvt("UnJourPasse", "Jour typique");
-    Effet* effet_un_jour = UnJourPasse->AjouterEffetAjouteurACarac(VieDunMekano::jours, "1");
-    effet_un_jour->m_GoToEvtId = "RandomJournalier";
+
+    Effet* effet_un_jour = UnJourPasse->AjouterEffetAjouteurACarac(VieDunMekano::jours, "1", "effet_UnJourPasse");
+    //effet_un_jour->m_GoToEvtId = "RandomJournalier";
+
+    Effet* test_apres_effet_un_jour = UnJourPasse->AjouterEffetNarration("test après effet_UnJourPasse pas dans le else", "test après effet_UnJourPasse");
+    test_apres_effet_un_jour->m_GoToEffetId = "YoupiTmp";
+
+    test_apres_effet_un_jour->AjouterCondition( VieDunMekano::jours, Comparateur::c_SuperieurEgal, "5");
+    Noeud* elseNoeud = test_apres_effet_un_jour->AjouterElse("effet_UnJourPasse dans le else");
+    elseNoeud->m_GoToEffetId = "YoupiTmpElse";
+
+    // tmp test :
+    Effet* tmpTest = UnJourPasse->AjouterEffetNarration("NORMAL Youpi Tmp dans la narration", "", "YoupiTmp");
+    tmpTest->m_GoToEffetId = "effet_UnJourPasse";
+
+    Effet* tmpTest2 = UnJourPasse->AjouterEffetNarration("ELSE Youpi Tmp dans la narration", "", "YoupiTmpElse");
+    tmpTest2->m_GoToEffetId = "effet_UnJourPasse";
 
     EvtAleatoire* RandomJournalier = AjouterEvtAleatoire("RandomJournalier", "Jour typique");
 
@@ -55,7 +70,8 @@ void VieDunMekano::MedikoBionique()
  {
      Evt* Debut = AjouterEvt("Debut", "Installation d'un mékano");
      Effet* intro = Debut->AjouterEffetNarration("Youpi vous êtes un mékano.");
-     intro->m_GoToEvtId = "RandomJournalier";
+     //intro->m_GoToEvtId = "RandomJournalier";
+     intro->m_GoToEvtId = "UnJourPasse";
 
      /*Effet* effetAtterrissage = Debut->AjouterEffetNarration("Le vaisseau où vous étiez en hibernation depuis un temps indéterminé, des siècles peut-être, vient enfin de s'écraser sur une planête inconnue. Votre organisme sort de l'hibernation, vos muscles s'étirent, il est temps de se mettre en chasse. La faim vous taraude déjà. Mais un autre instinct s'y mélange, presque aussi fort : celui de créer un nid, de s'y réfugier et de s'y reproduire. \nPour l'heure une seule pensée vous obséde : que ce soit pour l'un ou l'autre de ces buts il vous faut découvrir si cette planète est habitée par des êtres vivants, qui pourront satisfaire tous vos instincts primitifs.",
                        ":/Aventures/Warhammer 40000/Tyranides/Genestealers_atterissage.jpg",
