@@ -28,7 +28,7 @@ protected:
     virtual void GenererCaracs();
 
 public:
-    Orks(HistoireOrk themeHistoire, QWidget *parent = nullptr, QString premierEvt = "", QString premierEffet = "");
+    Orks(HistoireOrk themeHistoire, ModeAffichage modeAffichage = ModeAffichage::ema_Jeu, QWidget *parent = nullptr, QString premierEvt = "", QString premierEffet = "");
     ~Orks();
 
     static QString GenerationNomOrk();

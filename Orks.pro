@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui widgets
+QT += multimedia
 
 TARGET = Orks
 TEMPLATE = app
@@ -76,4 +77,7 @@ FORMS += \
 
 RESOURCES += \
     Images/mekano.qrc \
-    Images/caracs.qrc
+    Images/caracs.qrc \
+    Son/son.qrc
+
+DISTFILES +=

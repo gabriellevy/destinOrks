@@ -10,8 +10,10 @@ QVector<QString> Orks::m_NomsGretchins = {};
 QVector<QString> Orks::m_NomsPartiesArmes = {};
 QVector<QString> Orks::m_NomsArmes = {};
 
-Orks::Orks(HistoireOrk themeHistoire, QWidget *parent, QString premierEvt, QString premierEffet)
-    : Aventure(parent), m_HistoireOrk(themeHistoire)
+Orks::Orks(HistoireOrk themeHistoire,
+           ModeAffichage modeAffichage,
+           QWidget *parent, QString premierEvt, QString premierEffet)
+    : Aventure(parent, modeAffichage), m_HistoireOrk(themeHistoire)
 {
     // intialisations générales
     GenererListesObjets();

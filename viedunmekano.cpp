@@ -35,6 +35,7 @@ void VieDunMekano::GenererEvtRandomJournalier()
     //effet_un_jour->m_GoToEvtId = "RandomJournalier";
 
     Effet* test_apres_effet_un_jour = UnJourPasse->AjouterEffetNarration("test après effet_UnJourPasse pas dans le else", "test après effet_UnJourPasse");
+    test_apres_effet_un_jour->m_Son = "qrc:/alcibiade_mozart23III.mp3";
     test_apres_effet_un_jour->m_GoToEffetId = "YoupiTmp";
 
     test_apres_effet_un_jour->AjouterCondition( VieDunMekano::jours, Comparateur::c_SuperieurEgal, "5");
